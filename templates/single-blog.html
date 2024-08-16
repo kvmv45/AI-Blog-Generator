@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Blog Generator</title>
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+  </head>
+
+  <body style="background-color: #f5f5f5">
+    <!-- navbar -->
+    <nav
+      class="navbar navbar-expand-md bg-primary navbar-dark"
+      aria-label="Navbar"
+    >
+      <div class="container">
+        <a class="navbar-brand col-lg-3 me-0" href="/">
+          <h3>AI Blog Generator</h3>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarsExample11"
+          aria-controls="navbarsExample11"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample11">
+          <ul class="navbar-nav col-lg-12 justify-content-lg-end">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                >Welcome {{user.username}}</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/blog-list">Saved Articles</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-md-8 mx-auto shadow-sm py-4 py-lg-5 px-3 px-lg-5 mt-5 rounded-2 bg-white"
+          >
+            <div class="mb-4">
+              <h2>{{article.youtube_title}}</h2>
+            </div>
+
+            <div class="row">{{article.content}}</div>
+            <hr />
+            <div class="mb-3">
+              <h4>YouTube Title</h4>
+              <p>{{article.youtube_title}}</p>
+            </div>
+            <div>
+              <h4>YouTube link</h4>
+              <a href="{{article.youtube_link}}">{{article.youtube_link}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="mt-5 text-center text-secondary">
+      <p>Powered by Stanley Jabweli</p>
+    </footer>
+
+    <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>

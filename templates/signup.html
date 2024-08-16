@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+</head>
+
+<body style="background-color: #f5f5f5;">
+  <nav class="navbar navbar-expand-md bg-primary navbar-dark" aria-label="Navbar">
+    <div class="container">
+      <a class="navbar-brand col-lg-3 me-0" href="#">
+        <h3>AI Blog Generator</h3>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11"
+        aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+
+  <main class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 mx-auto bg-white p-5 shadow-sm rounded-4">
+          <form action="" method="post">
+            {% if error_message %}
+            <span class="text-danger">{{ error_message }}</span>
+            {% endif %}
+            {% csrf_token %}
+            <h2 class="mb-0">Sign Up</h2>
+            <small>Create an account today!</small>
+
+            <div class="form-group mb-3 mt-3">
+              <label for="username">Username</label>
+              <input type="text" id="username" name="name" placeholder="Enter username"
+                class="form-control form-control">
+            </div>
+            <div class="form-group mb-3">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Enter email address"
+                class="form-control form-control">
+            </div>
+            <div class="form-group mb-3">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" placeholder="Enter password" class="form-control">
+            </div>
+
+            <div class="form-group mb-4">
+              <label for="cpassword">Confirm Password</label>
+              <input type="password" name="cpassword" id="cpassword" placeholder="Confirm password"
+                class="form-control">
+            </div>
+
+            <div class="form-group mb-3">
+              <button type="submit" class="btn btn-primary form-control">Sign Up</button>
+            </div>
+            <span>Already have an account? <a href="login">Login</a></span>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+  <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+
+</html>
